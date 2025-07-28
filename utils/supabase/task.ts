@@ -1,12 +1,14 @@
+"use server"
 import {createClient} from "./server";
 import handleError from "../handleError";
 import {TaskDBResponse} from "../model/task";
 
 
-const supabase = await createClient();
 
 export async function getTasks(): Promise<TaskDBResponse>{
 
+
+    const supabase = await createClient();
     try{
         console.log("getTasks was called")
         const { data: tasks, error } = await supabase
